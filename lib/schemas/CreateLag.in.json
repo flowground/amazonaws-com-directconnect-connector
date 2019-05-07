@@ -1,0 +1,72 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "connectionId": {
+                    "description": "The ID of an existing connection to migrate to the LAG.",
+                    "type": "string"
+                },
+                "connectionsBandwidth": {
+                    "description": "The bandwidth of the individual physical connections bundled by the LAG. The possible values are 1Gbps and 10Gbps.",
+                    "type": "string"
+                },
+                "lagName": {
+                    "description": "The name of the LAG.",
+                    "type": "string"
+                },
+                "location": {
+                    "description": "The location for the LAG.",
+                    "type": "string"
+                },
+                "numberOfConnections": {
+                    "description": "The number of physical connections initially provisioned and bundled by the LAG.",
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "numberOfConnections",
+                "location",
+                "connectionsBandwidth",
+                "lagName"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

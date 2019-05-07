@@ -1,0 +1,111 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "connectionId": {
+                    "description": "The ID of the connection.",
+                    "type": "string"
+                },
+                "newPublicVirtualInterface": {
+                    "description": "Information about the public virtual interface.",
+                    "properties": {
+                        "addressFamily": {
+                            "description": "The address family for the BGP peer.",
+                            "enum": [
+                                "ipv4",
+                                "ipv6"
+                            ],
+                            "type": "string"
+                        },
+                        "amazonAddress": {
+                            "description": "The IP address assigned to the Amazon interface.",
+                            "type": "string"
+                        },
+                        "asn": {
+                            "description": "The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.",
+                            "type": "integer"
+                        },
+                        "authKey": {
+                            "description": "The authentication key for BGP configuration.",
+                            "type": "string"
+                        },
+                        "customerAddress": {
+                            "description": "The IP address assigned to the customer interface.",
+                            "type": "string"
+                        },
+                        "routeFilterPrefixes": {
+                            "description": "The routes to be advertised to the AWS network in this Region. Applies to public virtual interfaces.",
+                            "items": {
+                                "description": "Information about a route filter prefix that a customer can advertise through Border Gateway Protocol (BGP) over a public virtual interface.",
+                                "properties": {
+                                    "cidr": {
+                                        "description": "The CIDR block for the advertised route. Separate multiple routes using commas. An IPv6 CIDR must use /64 or shorter.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "virtualInterfaceName": {
+                            "description": "The name of the virtual interface assigned by the customer network.",
+                            "type": "string"
+                        },
+                        "vlan": {
+                            "description": "The ID of the VLAN.",
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "virtualInterfaceName",
+                        "vlan",
+                        "asn"
+                    ],
+                    "type": "object"
+                }
+            },
+            "required": [
+                "connectionId",
+                "newPublicVirtualInterface"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

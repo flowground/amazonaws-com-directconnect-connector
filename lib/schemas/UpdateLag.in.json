@@ -1,0 +1,61 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "lagId": {
+                    "description": "The ID of the LAG.",
+                    "type": "string"
+                },
+                "lagName": {
+                    "description": "The name of the LAG.",
+                    "type": "string"
+                },
+                "minimumLinks": {
+                    "description": "The minimum number of physical connections that must be operational for the LAG itself to be operational.",
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "lagId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,109 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "connectionId": {
+                    "description": "The ID of the connection.",
+                    "type": "string"
+                },
+                "newPrivateVirtualInterface": {
+                    "description": "Information about the private virtual interface.",
+                    "properties": {
+                        "addressFamily": {
+                            "description": "The address family for the BGP peer.",
+                            "enum": [
+                                "ipv4",
+                                "ipv6"
+                            ],
+                            "type": "string"
+                        },
+                        "amazonAddress": {
+                            "description": "The IP address assigned to the Amazon interface.",
+                            "type": "string"
+                        },
+                        "asn": {
+                            "description": "The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.",
+                            "type": "integer"
+                        },
+                        "authKey": {
+                            "description": "The authentication key for BGP configuration.",
+                            "type": "string"
+                        },
+                        "customerAddress": {
+                            "description": "The IP address assigned to the customer interface.",
+                            "type": "string"
+                        },
+                        "directConnectGatewayId": {
+                            "description": "The ID of the Direct Connect gateway.",
+                            "type": "string"
+                        },
+                        "mtu": {
+                            "description": "The maximum transmission unit (MTU), in bytes. The supported values are 1500 and 9001. The default value is 1500.",
+                            "type": "integer"
+                        },
+                        "virtualGatewayId": {
+                            "description": "The ID of the virtual private gateway.",
+                            "type": "string"
+                        },
+                        "virtualInterfaceName": {
+                            "description": "The name of the virtual interface assigned by the customer network.",
+                            "type": "string"
+                        },
+                        "vlan": {
+                            "description": "The ID of the VLAN.",
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "virtualInterfaceName",
+                        "vlan",
+                        "asn"
+                    ],
+                    "type": "object"
+                }
+            },
+            "required": [
+                "connectionId",
+                "newPrivateVirtualInterface"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
