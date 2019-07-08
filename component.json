@@ -20,7 +20,7 @@
                 "label": "Custom Server URL",
                 "viewClass": "TextFieldView"
             },
-            "hmac": {
+            "auth_hmac": {
                 "label": "Authorization (hmac)",
                 "viewClass": "TextFieldView",
                 "note": "Amazon Signature authorization v4"
@@ -38,8 +38,8 @@
     "actions": {
         "AllocateConnectionOnInterconnect": {
             "main": "./lib/actions/AllocateConnectionOnInterconnect.js",
-            "title": "<p>Deprecated. Use <a>AllocateHostedConnection</a> instead.</p> <p>Creates a hosted connection on an interconnect.</p> <p>Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection on the specified interconnect.</p> <note> <p>Intended for use by AWS Direct Connect partners only.</p> </note>",
-            "description": "<p>Deprecated. Use <a>AllocateHostedConnection</a> instead.</p> <p>Creates a hosted connection on an interconnect.</p> <p>Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection on the specified interconnect.</p> <note> <p>Intended for use by AWS Direct Connect partners only.</p> </note>",
+            "title": "AllocateConnectionOnInterconnect",
+            "description": "Deprecated. Use AllocateHostedConnection instead.\n\nCreates a hosted connection on an interconnect.\n\nAllocates a VLAN number and a specified amount of bandwidth for use by a hosted\nconnection on the specified interconnect.\n\nIntended for use by AWS Direct Connect partners only.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -55,8 +55,8 @@
         },
         "AllocateHostedConnection": {
             "main": "./lib/actions/AllocateHostedConnection.js",
-            "title": "<p>Creates a hosted connection on the specified interconnect or a link aggregation group (LAG).</p> <p>Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection on the specified interconnect or LAG.</p> <note> <p>Intended for use by AWS Direct Connect partners only.</p> </note>",
-            "description": "<p>Creates a hosted connection on the specified interconnect or a link aggregation group (LAG).</p> <p>Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection on the specified interconnect or LAG.</p> <note> <p>Intended for use by AWS Direct Connect partners only.</p> </note>",
+            "title": "AllocateHostedConnection",
+            "description": "Creates a hosted connection on the specified interconnect or a link aggregation\ngroup (LAG).\n\nAllocates a VLAN number and a specified amount of bandwidth for use by a hosted\nconnection on the specified interconnect or LAG.\n\nIntended for use by AWS Direct Connect partners only.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -72,8 +72,8 @@
         },
         "AllocatePrivateVirtualInterface": {
             "main": "./lib/actions/AllocatePrivateVirtualInterface.js",
-            "title": "<p>Provisions a private virtual interface to be owned by the specified AWS account.</p> <p>Virtual interfaces created using this action must be confirmed by the owner using <a>ConfirmPrivateVirtualInterface</a>. Until then, the virtual interface is in the <code>Confirming</code> state and is not available to handle traffic.</p>",
-            "description": "<p>Provisions a private virtual interface to be owned by the specified AWS account.</p> <p>Virtual interfaces created using this action must be confirmed by the owner using <a>ConfirmPrivateVirtualInterface</a>. Until then, the virtual interface is in the <code>Confirming</code> state and is not available to handle traffic.</p>",
+            "title": "AllocatePrivateVirtualInterface",
+            "description": "Provisions a private virtual interface to be owned by the specified AWS account.\n\nVirtual interfaces created using this action must be confirmed by the owner\nusing ConfirmPrivateVirtualInterface. Until then, the virtual interface is in\nthe Confirming state and is not available to handle traffic.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -89,8 +89,8 @@
         },
         "AllocatePublicVirtualInterface": {
             "main": "./lib/actions/AllocatePublicVirtualInterface.js",
-            "title": "<p>Provisions a public virtual interface to be owned by the specified AWS account.</p> <p>The owner of a connection calls this function to provision a public virtual interface to be owned by the specified AWS account.</p> <p>Virtual interfaces created using this function must be confirmed by the owner using <a>ConfirmPublicVirtualInterface</a>. Until this step has been completed, the virtual interface is in the <code>confirming</code> state and is not available to handle traffic.</p> <p>When creating an IPv6 public virtual interface, omit the Amazon address and customer address. IPv6 addresses are automatically assigned from the Amazon pool of IPv6 addresses; you cannot specify custom IPv6 addresses.</p>",
-            "description": "<p>Provisions a public virtual interface to be owned by the specified AWS account.</p> <p>The owner of a connection calls this function to provision a public virtual interface to be owned by the specified AWS account.</p> <p>Virtual interfaces created using this function must be confirmed by the owner using <a>ConfirmPublicVirtualInterface</a>. Until this step has been completed, the virtual interface is in the <code>confirming</code> state and is not available to handle traffic.</p> <p>When creating an IPv6 public virtual interface, omit the Amazon address and customer address. IPv6 addresses are automatically assigned from the Amazon pool of IPv6 addresses; you cannot specify custom IPv6 addresses.</p>",
+            "title": "AllocatePublicVirtualInterface",
+            "description": "Provisions a public virtual interface to be owned by the specified AWS account.\n\nThe owner of a connection calls this function to provision a public virtual\ninterface to be owned by the specified AWS account.\n\nVirtual interfaces created using this function must be confirmed by the owner\nusing ConfirmPublicVirtualInterface. Until this step has been completed, the\nvirtual interface is in the confirming state and is not available to handle\ntraffic.\n\nWhen creating an IPv6 public virtual interface, omit the Amazon address and\ncustomer address. IPv6 addresses are automatically assigned from the Amazon pool\nof IPv6 addresses; you cannot specify custom IPv6 addresses.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -106,8 +106,8 @@
         },
         "AssociateConnectionWithLag": {
             "main": "./lib/actions/AssociateConnectionWithLag.js",
-            "title": "<p>Associates an existing connection with a link aggregation group (LAG). The connection is interrupted and re-established as a member of the LAG (connectivity to AWS is interrupted). The connection must be hosted on the same AWS Direct Connect endpoint as the LAG, and its bandwidth must match the bandwidth for the LAG. You can re-associate a connection that's currently associated with a different LAG; however, if removing the connection would cause the original LAG to fall below its setting for minimum number of operational connections, the request fails.</p> <p>Any virtual interfaces that are directly associated with the connection are automatically re-associated with the LAG. If the connection was originally associated with a different LAG, the virtual interfaces remain associated with the original LAG.</p> <p>For interconnects, any hosted connections are automatically re-associated with the LAG. If the interconnect was originally associated with a different LAG, the hosted connections remain associated with the original LAG.</p>",
-            "description": "<p>Associates an existing connection with a link aggregation group (LAG). The connection is interrupted and re-established as a member of the LAG (connectivity to AWS is interrupted). The connection must be hosted on the same AWS Direct Connect endpoint as the LAG, and its bandwidth must match the bandwidth for the LAG. You can re-associate a connection that's currently associated with a different LAG; however, if removing the connection would cause the original LAG to fall below its setting for minimum number of operational connections, the request fails.</p> <p>Any virtual interfaces that are directly associated with the connection are automatically re-associated with the LAG. If the connection was originally associated with a different LAG, the virtual interfaces remain associated with the original LAG.</p> <p>For interconnects, any hosted connections are automatically re-associated with the LAG. If the interconnect was originally associated with a different LAG, the hosted connections remain associated with the original LAG.</p>",
+            "title": "AssociateConnectionWithLag",
+            "description": "Associates an existing connection with a link aggregation group (LAG). The\nconnection is interrupted and re-established as a member of the LAG\n(connectivity to AWS is interrupted). The connection must be hosted on the same\nAWS Direct Connect endpoint as the LAG, and its bandwidth must match the\nbandwidth for the LAG. You can re-associate a connection that's currently\nassociated with a different LAG; however, if removing the connection would cause\nthe original LAG to fall below its setting for minimum number of operational\nconnections, the request fails.\n\nAny virtual interfaces that are directly associated with the connection are\nautomatically re-associated with the LAG. If the connection was originally\nassociated with a different LAG, the virtual interfaces remain associated with\nthe original LAG.\n\nFor interconnects, any hosted connections are automatically re-associated with\nthe LAG. If the interconnect was originally associated with a different LAG, the\nhosted connections remain associated with the original LAG.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -123,8 +123,8 @@
         },
         "AssociateHostedConnection": {
             "main": "./lib/actions/AssociateHostedConnection.js",
-            "title": "<p>Associates a hosted connection and its virtual interfaces with a link aggregation group (LAG) or interconnect. If the target interconnect or LAG has an existing hosted connection with a conflicting VLAN number or IP address, the operation fails. This action temporarily interrupts the hosted connection's connectivity to AWS as it is being migrated.</p> <note> <p>Intended for use by AWS Direct Connect partners only.</p> </note>",
-            "description": "<p>Associates a hosted connection and its virtual interfaces with a link aggregation group (LAG) or interconnect. If the target interconnect or LAG has an existing hosted connection with a conflicting VLAN number or IP address, the operation fails. This action temporarily interrupts the hosted connection's connectivity to AWS as it is being migrated.</p> <note> <p>Intended for use by AWS Direct Connect partners only.</p> </note>",
+            "title": "AssociateHostedConnection",
+            "description": "Associates a hosted connection and its virtual interfaces with a link\naggregation group (LAG) or interconnect. If the target interconnect or LAG has\nan existing hosted connection with a conflicting VLAN number or IP address, the\noperation fails. This action temporarily interrupts the hosted connection's\nconnectivity to AWS as it is being migrated.\n\nIntended for use by AWS Direct Connect partners only.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -140,8 +140,8 @@
         },
         "AssociateVirtualInterface": {
             "main": "./lib/actions/AssociateVirtualInterface.js",
-            "title": "<p>Associates a virtual interface with a specified link aggregation group (LAG) or connection. Connectivity to AWS is temporarily interrupted as the virtual interface is being migrated. If the target connection or LAG has an associated virtual interface with a conflicting VLAN number or a conflicting IP address, the operation fails.</p> <p>Virtual interfaces associated with a hosted connection cannot be associated with a LAG; hosted connections must be migrated along with their virtual interfaces using <a>AssociateHostedConnection</a>.</p> <p>To reassociate a virtual interface to a new connection or LAG, the requester must own either the virtual interface itself or the connection to which the virtual interface is currently associated. Additionally, the requester must own the connection or LAG for the association.</p>",
-            "description": "<p>Associates a virtual interface with a specified link aggregation group (LAG) or connection. Connectivity to AWS is temporarily interrupted as the virtual interface is being migrated. If the target connection or LAG has an associated virtual interface with a conflicting VLAN number or a conflicting IP address, the operation fails.</p> <p>Virtual interfaces associated with a hosted connection cannot be associated with a LAG; hosted connections must be migrated along with their virtual interfaces using <a>AssociateHostedConnection</a>.</p> <p>To reassociate a virtual interface to a new connection or LAG, the requester must own either the virtual interface itself or the connection to which the virtual interface is currently associated. Additionally, the requester must own the connection or LAG for the association.</p>",
+            "title": "AssociateVirtualInterface",
+            "description": "Associates a virtual interface with a specified link aggregation group (LAG) or\nconnection. Connectivity to AWS is temporarily interrupted as the virtual\ninterface is being migrated. If the target connection or LAG has an associated\nvirtual interface with a conflicting VLAN number or a conflicting IP address,\nthe operation fails.\n\nVirtual interfaces associated with a hosted connection cannot be associated with\na LAG; hosted connections must be migrated along with their virtual interfaces\nusing AssociateHostedConnection.\n\nTo reassociate a virtual interface to a new connection or LAG, the requester\nmust own either the virtual interface itself or the connection to which the\nvirtual interface is currently associated. Additionally, the requester must own\nthe connection or LAG for the association.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -157,8 +157,8 @@
         },
         "ConfirmConnection": {
             "main": "./lib/actions/ConfirmConnection.js",
-            "title": "<p>Confirms the creation of the specified hosted connection on an interconnect.</p> <p>Upon creation, the hosted connection is initially in the <code>Ordering</code> state, and remains in this state until the owner confirms creation of the hosted connection.</p>",
-            "description": "<p>Confirms the creation of the specified hosted connection on an interconnect.</p> <p>Upon creation, the hosted connection is initially in the <code>Ordering</code> state, and remains in this state until the owner confirms creation of the hosted connection.</p>",
+            "title": "ConfirmConnection",
+            "description": "Confirms the creation of the specified hosted connection on an interconnect.\n\nUpon creation, the hosted connection is initially in the Ordering state, and\nremains in this state until the owner confirms creation of the hosted\nconnection.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -174,8 +174,8 @@
         },
         "ConfirmPrivateVirtualInterface": {
             "main": "./lib/actions/ConfirmPrivateVirtualInterface.js",
-            "title": "<p>Accepts ownership of a private virtual interface created by another AWS account.</p> <p>After the virtual interface owner makes this call, the virtual interface is created and attached to the specified virtual private gateway or Direct Connect gateway, and is made available to handle traffic.</p>",
-            "description": "<p>Accepts ownership of a private virtual interface created by another AWS account.</p> <p>After the virtual interface owner makes this call, the virtual interface is created and attached to the specified virtual private gateway or Direct Connect gateway, and is made available to handle traffic.</p>",
+            "title": "ConfirmPrivateVirtualInterface",
+            "description": "Accepts ownership of a private virtual interface created by another AWS account.\n\nAfter the virtual interface owner makes this call, the virtual interface is\ncreated and attached to the specified virtual private gateway or Direct Connect\ngateway, and is made available to handle traffic.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -191,8 +191,8 @@
         },
         "ConfirmPublicVirtualInterface": {
             "main": "./lib/actions/ConfirmPublicVirtualInterface.js",
-            "title": "<p>Accepts ownership of a public virtual interface created by another AWS account.</p> <p>After the virtual interface owner makes this call, the specified virtual interface is created and made available to handle traffic.</p>",
-            "description": "<p>Accepts ownership of a public virtual interface created by another AWS account.</p> <p>After the virtual interface owner makes this call, the specified virtual interface is created and made available to handle traffic.</p>",
+            "title": "ConfirmPublicVirtualInterface",
+            "description": "Accepts ownership of a public virtual interface created by another AWS account.\n\nAfter the virtual interface owner makes this call, the specified virtual\ninterface is created and made available to handle traffic.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -208,8 +208,8 @@
         },
         "CreateBGPPeer": {
             "main": "./lib/actions/CreateBGPPeer.js",
-            "title": "<p>Creates a BGP peer on the specified virtual interface.</p> <p>You must create a BGP peer for the corresponding address family (IPv4/IPv6) in order to access AWS resources that also use that address family.</p> <p>If logical redundancy is not supported by the connection, interconnect, or LAG, the BGP peer cannot be in the same address family as an existing BGP peer on the virtual interface.</p> <p>When creating a IPv6 BGP peer, omit the Amazon address and customer address. IPv6 addresses are automatically assigned from the Amazon pool of IPv6 addresses; you cannot specify custom IPv6 addresses.</p> <p>For a public virtual interface, the Autonomous System Number (ASN) must be private or already whitelisted for the virtual interface.</p>",
-            "description": "<p>Creates a BGP peer on the specified virtual interface.</p> <p>You must create a BGP peer for the corresponding address family (IPv4/IPv6) in order to access AWS resources that also use that address family.</p> <p>If logical redundancy is not supported by the connection, interconnect, or LAG, the BGP peer cannot be in the same address family as an existing BGP peer on the virtual interface.</p> <p>When creating a IPv6 BGP peer, omit the Amazon address and customer address. IPv6 addresses are automatically assigned from the Amazon pool of IPv6 addresses; you cannot specify custom IPv6 addresses.</p> <p>For a public virtual interface, the Autonomous System Number (ASN) must be private or already whitelisted for the virtual interface.</p>",
+            "title": "CreateBGPPeer",
+            "description": "Creates a BGP peer on the specified virtual interface.\n\nYou must create a BGP peer for the corresponding address family (IPv4/IPv6) in\norder to access AWS resources that also use that address family.\n\nIf logical redundancy is not supported by the connection, interconnect, or LAG,\nthe BGP peer cannot be in the same address family as an existing BGP peer on the\nvirtual interface.\n\nWhen creating a IPv6 BGP peer, omit the Amazon address and customer address.\nIPv6 addresses are automatically assigned from the Amazon pool of IPv6\naddresses; you cannot specify custom IPv6 addresses.\n\nFor a public virtual interface, the Autonomous System Number (ASN) must be\nprivate or already whitelisted for the virtual interface.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -225,8 +225,8 @@
         },
         "CreateConnection": {
             "main": "./lib/actions/CreateConnection.js",
-            "title": "<p>Creates a connection between a customer network and a specific AWS Direct Connect location.</p> <p>A connection links your internal network to an AWS Direct Connect location over a standard Ethernet fiber-optic cable. One end of the cable is connected to your router, the other to an AWS Direct Connect router.</p> <p>To find the locations for your Region, use <a>DescribeLocations</a>.</p> <p>You can automatically add the new connection to a link aggregation group (LAG) by specifying a LAG ID in the request. This ensures that the new connection is allocated on the same AWS Direct Connect endpoint that hosts the specified LAG. If there are no available ports on the endpoint, the request fails and no connection is created.</p>",
-            "description": "<p>Creates a connection between a customer network and a specific AWS Direct Connect location.</p> <p>A connection links your internal network to an AWS Direct Connect location over a standard Ethernet fiber-optic cable. One end of the cable is connected to your router, the other to an AWS Direct Connect router.</p> <p>To find the locations for your Region, use <a>DescribeLocations</a>.</p> <p>You can automatically add the new connection to a link aggregation group (LAG) by specifying a LAG ID in the request. This ensures that the new connection is allocated on the same AWS Direct Connect endpoint that hosts the specified LAG. If there are no available ports on the endpoint, the request fails and no connection is created.</p>",
+            "title": "CreateConnection",
+            "description": "Creates a connection between a customer network and a specific AWS Direct\nConnect location.\n\nA connection links your internal network to an AWS Direct Connect location over\na standard Ethernet fiber-optic cable. One end of the cable is connected to your\nrouter, the other to an AWS Direct Connect router.\n\nTo find the locations for your Region, use DescribeLocations.\n\nYou can automatically add the new connection to a link aggregation group (LAG)\nby specifying a LAG ID in the request. This ensures that the new connection is\nallocated on the same AWS Direct Connect endpoint that hosts the specified LAG.\nIf there are no available ports on the endpoint, the request fails and no\nconnection is created.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -242,7 +242,7 @@
         },
         "CreateDirectConnectGateway": {
             "main": "./lib/actions/CreateDirectConnectGateway.js",
-            "title": "Creates a Direct Connect gateway, which is an intermediate object that enables you to connect a set of virtual interfaces and virtual private gateways. A Direct Connect gateway is global and visible in any AWS Region after it is created. The virtual interfaces and virtual private gateways that are connected through a Direct Connect gateway can be in different AWS Regions. This enables you to connect to a VPC in any Region, regardless of the Region in which the virtual interfaces are located, and pass traffic between them.",
+            "title": "CreateDirectConnectGateway",
             "description": "Creates a Direct Connect gateway, which is an intermediate object that enables you to connect a set of virtual interfaces and virtual private gateways. A Direct Connect gateway is global and visible in any AWS Region after it is created. The virtual interfaces and virtual private gateways that are connected through a Direct Connect gateway can be in different AWS Regions. This enables you to connect to a VPC in any Region, regardless of the Region in which the virtual interfaces are located, and pass traffic between them.",
             "fields": {
                 "verbose": {
@@ -259,7 +259,7 @@
         },
         "CreateDirectConnectGatewayAssociation": {
             "main": "./lib/actions/CreateDirectConnectGatewayAssociation.js",
-            "title": "Creates an association between a Direct Connect gateway and a virtual private gateway. The virtual private gateway must be attached to a VPC and must not be associated with another Direct Connect gateway.",
+            "title": "CreateDirectConnectGatewayAssociation",
             "description": "Creates an association between a Direct Connect gateway and a virtual private gateway. The virtual private gateway must be attached to a VPC and must not be associated with another Direct Connect gateway.",
             "fields": {
                 "verbose": {
@@ -276,8 +276,8 @@
         },
         "CreateInterconnect": {
             "main": "./lib/actions/CreateInterconnect.js",
-            "title": "<p>Creates an interconnect between an AWS Direct Connect partner's network and a specific AWS Direct Connect location.</p> <p>An interconnect is a connection which is capable of hosting other connections. The partner can use an interconnect to provide sub-1Gbps AWS Direct Connect service to tier 2 customers who do not have their own connections. Like a standard connection, an interconnect links the partner's network to an AWS Direct Connect location over a standard Ethernet fiber-optic cable. One end is connected to the partner's router, the other to an AWS Direct Connect router.</p> <p>You can automatically add the new interconnect to a link aggregation group (LAG) by specifying a LAG ID in the request. This ensures that the new interconnect is allocated on the same AWS Direct Connect endpoint that hosts the specified LAG. If there are no available ports on the endpoint, the request fails and no interconnect is created.</p> <p>For each end customer, the AWS Direct Connect partner provisions a connection on their interconnect by calling <a>AllocateConnectionOnInterconnect</a>. The end customer can then connect to AWS resources by creating a virtual interface on their connection, using the VLAN assigned to them by the partner.</p> <note> <p>Intended for use by AWS Direct Connect partners only.</p> </note>",
-            "description": "<p>Creates an interconnect between an AWS Direct Connect partner's network and a specific AWS Direct Connect location.</p> <p>An interconnect is a connection which is capable of hosting other connections. The partner can use an interconnect to provide sub-1Gbps AWS Direct Connect service to tier 2 customers who do not have their own connections. Like a standard connection, an interconnect links the partner's network to an AWS Direct Connect location over a standard Ethernet fiber-optic cable. One end is connected to the partner's router, the other to an AWS Direct Connect router.</p> <p>You can automatically add the new interconnect to a link aggregation group (LAG) by specifying a LAG ID in the request. This ensures that the new interconnect is allocated on the same AWS Direct Connect endpoint that hosts the specified LAG. If there are no available ports on the endpoint, the request fails and no interconnect is created.</p> <p>For each end customer, the AWS Direct Connect partner provisions a connection on their interconnect by calling <a>AllocateConnectionOnInterconnect</a>. The end customer can then connect to AWS resources by creating a virtual interface on their connection, using the VLAN assigned to them by the partner.</p> <note> <p>Intended for use by AWS Direct Connect partners only.</p> </note>",
+            "title": "CreateInterconnect",
+            "description": "Creates an interconnect between an AWS Direct Connect partner's network and a\nspecific AWS Direct Connect location.\n\nAn interconnect is a connection which is capable of hosting other connections.\nThe partner can use an interconnect to provide sub-1Gbps AWS Direct Connect\nservice to tier 2 customers who do not have their own connections. Like a\nstandard connection, an interconnect links the partner's network to an AWS\nDirect Connect location over a standard Ethernet fiber-optic cable. One end is\nconnected to the partner's router, the other to an AWS Direct Connect router.\n\nYou can automatically add the new interconnect to a link aggregation group (LAG)\nby specifying a LAG ID in the request. This ensures that the new interconnect is\nallocated on the same AWS Direct Connect endpoint that hosts the specified LAG.\nIf there are no available ports on the endpoint, the request fails and no\ninterconnect is created.\n\nFor each end customer, the AWS Direct Connect partner provisions a connection on\ntheir interconnect by calling AllocateConnectionOnInterconnect. The end customer\ncan then connect to AWS resources by creating a virtual interface on their\nconnection, using the VLAN assigned to them by the partner.\n\nIntended for use by AWS Direct Connect partners only.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -293,8 +293,8 @@
         },
         "CreateLag": {
             "main": "./lib/actions/CreateLag.js",
-            "title": "<p>Creates a link aggregation group (LAG) with the specified number of bundled physical connections between the customer network and a specific AWS Direct Connect location. A LAG is a logical interface that uses the Link Aggregation Control Protocol (LACP) to aggregate multiple interfaces, enabling you to treat them as a single interface.</p> <p>All connections in a LAG must use the same bandwidth and must terminate at the same AWS Direct Connect endpoint.</p> <p>You can have up to 10 connections per LAG. Regardless of this limit, if you request more connections for the LAG than AWS Direct Connect can allocate on a single endpoint, no LAG is created.</p> <p>You can specify an existing physical connection or interconnect to include in the LAG (which counts towards the total number of connections). Doing so interrupts the current physical connection or hosted connections, and re-establishes them as a member of the LAG. The LAG will be created on the same AWS Direct Connect endpoint to which the connection terminates. Any virtual interfaces associated with the connection are automatically disassociated and re-associated with the LAG. The connection ID does not change.</p> <p>If the AWS account used to create a LAG is a registered AWS Direct Connect partner, the LAG is automatically enabled to host sub-connections. For a LAG owned by a partner, any associated virtual interfaces cannot be directly configured.</p>",
-            "description": "<p>Creates a link aggregation group (LAG) with the specified number of bundled physical connections between the customer network and a specific AWS Direct Connect location. A LAG is a logical interface that uses the Link Aggregation Control Protocol (LACP) to aggregate multiple interfaces, enabling you to treat them as a single interface.</p> <p>All connections in a LAG must use the same bandwidth and must terminate at the same AWS Direct Connect endpoint.</p> <p>You can have up to 10 connections per LAG. Regardless of this limit, if you request more connections for the LAG than AWS Direct Connect can allocate on a single endpoint, no LAG is created.</p> <p>You can specify an existing physical connection or interconnect to include in the LAG (which counts towards the total number of connections). Doing so interrupts the current physical connection or hosted connections, and re-establishes them as a member of the LAG. The LAG will be created on the same AWS Direct Connect endpoint to which the connection terminates. Any virtual interfaces associated with the connection are automatically disassociated and re-associated with the LAG. The connection ID does not change.</p> <p>If the AWS account used to create a LAG is a registered AWS Direct Connect partner, the LAG is automatically enabled to host sub-connections. For a LAG owned by a partner, any associated virtual interfaces cannot be directly configured.</p>",
+            "title": "CreateLag",
+            "description": "Creates a link aggregation group (LAG) with the specified number of bundled\nphysical connections between the customer network and a specific AWS Direct\nConnect location. A LAG is a logical interface that uses the Link Aggregation\nControl Protocol (LACP) to aggregate multiple interfaces, enabling you to treat\nthem as a single interface.\n\nAll connections in a LAG must use the same bandwidth and must terminate at the\nsame AWS Direct Connect endpoint.\n\nYou can have up to 10 connections per LAG. Regardless of this limit, if you\nrequest more connections for the LAG than AWS Direct Connect can allocate on a\nsingle endpoint, no LAG is created.\n\nYou can specify an existing physical connection or interconnect to include in\nthe LAG (which counts towards the total number of connections). Doing so\ninterrupts the current physical connection or hosted connections, and\nre-establishes them as a member of the LAG. The LAG will be created on the same\nAWS Direct Connect endpoint to which the connection terminates. Any virtual\ninterfaces associated with the connection are automatically disassociated and\nre-associated with the LAG. The connection ID does not change.\n\nIf the AWS account used to create a LAG is a registered AWS Direct Connect\npartner, the LAG is automatically enabled to host sub-connections. For a LAG\nowned by a partner, any associated virtual interfaces cannot be directly\nconfigured.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -310,7 +310,7 @@
         },
         "CreatePrivateVirtualInterface": {
             "main": "./lib/actions/CreatePrivateVirtualInterface.js",
-            "title": "Creates a private virtual interface. A virtual interface is the VLAN that transports AWS Direct Connect traffic. A private virtual interface can be connected to either a Direct Connect gateway or a Virtual Private Gateway (VGW). Connecting the private virtual interface to a Direct Connect gateway enables the possibility for connecting to multiple VPCs, including VPCs in different AWS Regions. Connecting the private virtual interface to a VGW only provides access to a single VPC within the same Region.",
+            "title": "CreatePrivateVirtualInterface",
             "description": "Creates a private virtual interface. A virtual interface is the VLAN that transports AWS Direct Connect traffic. A private virtual interface can be connected to either a Direct Connect gateway or a Virtual Private Gateway (VGW). Connecting the private virtual interface to a Direct Connect gateway enables the possibility for connecting to multiple VPCs, including VPCs in different AWS Regions. Connecting the private virtual interface to a VGW only provides access to a single VPC within the same Region.",
             "fields": {
                 "verbose": {
@@ -327,8 +327,8 @@
         },
         "CreatePublicVirtualInterface": {
             "main": "./lib/actions/CreatePublicVirtualInterface.js",
-            "title": "<p>Creates a public virtual interface. A virtual interface is the VLAN that transports AWS Direct Connect traffic. A public virtual interface supports sending traffic to public services of AWS such as Amazon S3.</p> <p>When creating an IPv6 public virtual interface (<code>addressFamily</code> is <code>ipv6</code>), leave the <code>customer</code> and <code>amazon</code> address fields blank to use auto-assigned IPv6 space. Custom IPv6 addresses are not supported.</p>",
-            "description": "<p>Creates a public virtual interface. A virtual interface is the VLAN that transports AWS Direct Connect traffic. A public virtual interface supports sending traffic to public services of AWS such as Amazon S3.</p> <p>When creating an IPv6 public virtual interface (<code>addressFamily</code> is <code>ipv6</code>), leave the <code>customer</code> and <code>amazon</code> address fields blank to use auto-assigned IPv6 space. Custom IPv6 addresses are not supported.</p>",
+            "title": "CreatePublicVirtualInterface",
+            "description": "Creates a public virtual interface. A virtual interface is the VLAN that\ntransports AWS Direct Connect traffic. A public virtual interface supports\nsending traffic to public services of AWS such as Amazon S3.\n\nWhen creating an IPv6 public virtual interface (addressFamily is ipv6), leave\nthe customer and amazon address fields blank to use auto-assigned IPv6 space.\nCustom IPv6 addresses are not supported.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -344,8 +344,8 @@
         },
         "DeleteBGPPeer": {
             "main": "./lib/actions/DeleteBGPPeer.js",
-            "title": "<p>Deletes the specified BGP peer on the specified virtual interface with the specified customer address and ASN.</p> <p>You cannot delete the last BGP peer from a virtual interface.</p>",
-            "description": "<p>Deletes the specified BGP peer on the specified virtual interface with the specified customer address and ASN.</p> <p>You cannot delete the last BGP peer from a virtual interface.</p>",
+            "title": "DeleteBGPPeer",
+            "description": "Deletes the specified BGP peer on the specified virtual interface with the\nspecified customer address and ASN.\n\nYou cannot delete the last BGP peer from a virtual interface.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -361,8 +361,8 @@
         },
         "DeleteConnection": {
             "main": "./lib/actions/DeleteConnection.js",
-            "title": "<p>Deletes the specified connection.</p> <p>Deleting a connection only stops the AWS Direct Connect port hour and data transfer charges. If you are partnering with any third parties to connect with the AWS Direct Connect location, you must cancel your service with them separately.</p>",
-            "description": "<p>Deletes the specified connection.</p> <p>Deleting a connection only stops the AWS Direct Connect port hour and data transfer charges. If you are partnering with any third parties to connect with the AWS Direct Connect location, you must cancel your service with them separately.</p>",
+            "title": "DeleteConnection",
+            "description": "Deletes the specified connection.\n\nDeleting a connection only stops the AWS Direct Connect port hour and data\ntransfer charges. If you are partnering with any third parties to connect with\nthe AWS Direct Connect location, you must cancel your service with them\nseparately.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -378,7 +378,7 @@
         },
         "DeleteDirectConnectGateway": {
             "main": "./lib/actions/DeleteDirectConnectGateway.js",
-            "title": "Deletes the specified Direct Connect gateway. You must first delete all virtual interfaces that are attached to the Direct Connect gateway and disassociate all virtual private gateways that are associated with the Direct Connect gateway.",
+            "title": "DeleteDirectConnectGateway",
             "description": "Deletes the specified Direct Connect gateway. You must first delete all virtual interfaces that are attached to the Direct Connect gateway and disassociate all virtual private gateways that are associated with the Direct Connect gateway.",
             "fields": {
                 "verbose": {
@@ -395,7 +395,7 @@
         },
         "DeleteDirectConnectGatewayAssociation": {
             "main": "./lib/actions/DeleteDirectConnectGatewayAssociation.js",
-            "title": "Deletes the association between the specified Direct Connect gateway and virtual private gateway.",
+            "title": "DeleteDirectConnectGatewayAssociation",
             "description": "Deletes the association between the specified Direct Connect gateway and virtual private gateway.",
             "fields": {
                 "verbose": {
@@ -412,8 +412,8 @@
         },
         "DeleteInterconnect": {
             "main": "./lib/actions/DeleteInterconnect.js",
-            "title": "<p>Deletes the specified interconnect.</p> <note> <p>Intended for use by AWS Direct Connect partners only.</p> </note>",
-            "description": "<p>Deletes the specified interconnect.</p> <note> <p>Intended for use by AWS Direct Connect partners only.</p> </note>",
+            "title": "DeleteInterconnect",
+            "description": "Deletes the specified interconnect.\n\nIntended for use by AWS Direct Connect partners only.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -429,7 +429,7 @@
         },
         "DeleteLag": {
             "main": "./lib/actions/DeleteLag.js",
-            "title": "Deletes the specified link aggregation group (LAG). You cannot delete a LAG if it has active virtual interfaces or hosted connections.",
+            "title": "DeleteLag",
             "description": "Deletes the specified link aggregation group (LAG). You cannot delete a LAG if it has active virtual interfaces or hosted connections.",
             "fields": {
                 "verbose": {
@@ -446,7 +446,7 @@
         },
         "DeleteVirtualInterface": {
             "main": "./lib/actions/DeleteVirtualInterface.js",
-            "title": "Deletes a virtual interface.",
+            "title": "DeleteVirtualInterface",
             "description": "Deletes a virtual interface.",
             "fields": {
                 "verbose": {
@@ -463,8 +463,8 @@
         },
         "DescribeConnectionLoa": {
             "main": "./lib/actions/DescribeConnectionLoa.js",
-            "title": "<p>Deprecated. Use <a>DescribeLoa</a> instead.</p> <p>Gets the LOA-CFA for a connection.</p> <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that your APN partner or service provider uses when establishing your cross connect to AWS at the colocation facility. For more information, see <a href=\"https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html\">Requesting Cross Connects at AWS Direct Connect Locations</a> in the <i>AWS Direct Connect User Guide</i>.</p>",
-            "description": "<p>Deprecated. Use <a>DescribeLoa</a> instead.</p> <p>Gets the LOA-CFA for a connection.</p> <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that your APN partner or service provider uses when establishing your cross connect to AWS at the colocation facility. For more information, see <a href=\"https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html\">Requesting Cross Connects at AWS Direct Connect Locations</a> in the <i>AWS Direct Connect User Guide</i>.</p>",
+            "title": "DescribeConnectionLoa",
+            "description": "Deprecated. Use DescribeLoa instead.\n\nGets the LOA-CFA for a connection.\n\nThe Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a\ndocument that your APN partner or service provider uses when establishing your\ncross connect to AWS at the colocation facility. For more information, see \nRequesting Cross Connects at AWS Direct Connect Locations\n[https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html] in\nthe AWS Direct Connect User Guide.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -480,7 +480,7 @@
         },
         "DescribeConnections": {
             "main": "./lib/actions/DescribeConnections.js",
-            "title": "Displays the specified connection or all connections in this Region.",
+            "title": "DescribeConnections",
             "description": "Displays the specified connection or all connections in this Region.",
             "fields": {
                 "verbose": {
@@ -497,8 +497,8 @@
         },
         "DescribeConnectionsOnInterconnect": {
             "main": "./lib/actions/DescribeConnectionsOnInterconnect.js",
-            "title": "<p>Deprecated. Use <a>DescribeHostedConnections</a> instead.</p> <p>Lists the connections that have been provisioned on the specified interconnect.</p> <note> <p>Intended for use by AWS Direct Connect partners only.</p> </note>",
-            "description": "<p>Deprecated. Use <a>DescribeHostedConnections</a> instead.</p> <p>Lists the connections that have been provisioned on the specified interconnect.</p> <note> <p>Intended for use by AWS Direct Connect partners only.</p> </note>",
+            "title": "DescribeConnectionsOnInterconnect",
+            "description": "Deprecated. Use DescribeHostedConnections instead.\n\nLists the connections that have been provisioned on the specified interconnect.\n\nIntended for use by AWS Direct Connect partners only.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -514,7 +514,7 @@
         },
         "DescribeDirectConnectGatewayAssociations": {
             "main": "./lib/actions/DescribeDirectConnectGatewayAssociations.js",
-            "title": "Lists the associations between your Direct Connect gateways and virtual private gateways. You must specify a Direct Connect gateway, a virtual private gateway, or both. If you specify a Direct Connect gateway, the response contains all virtual private gateways associated with the Direct Connect gateway. If you specify a virtual private gateway, the response contains all Direct Connect gateways associated with the virtual private gateway. If you specify both, the response contains the association between the Direct Connect gateway and the virtual private gateway.",
+            "title": "DescribeDirectConnectGatewayAssociations",
             "description": "Lists the associations between your Direct Connect gateways and virtual private gateways. You must specify a Direct Connect gateway, a virtual private gateway, or both. If you specify a Direct Connect gateway, the response contains all virtual private gateways associated with the Direct Connect gateway. If you specify a virtual private gateway, the response contains all Direct Connect gateways associated with the virtual private gateway. If you specify both, the response contains the association between the Direct Connect gateway and the virtual private gateway.",
             "fields": {
                 "verbose": {
@@ -531,7 +531,7 @@
         },
         "DescribeDirectConnectGatewayAttachments": {
             "main": "./lib/actions/DescribeDirectConnectGatewayAttachments.js",
-            "title": "Lists the attachments between your Direct Connect gateways and virtual interfaces. You must specify a Direct Connect gateway, a virtual interface, or both. If you specify a Direct Connect gateway, the response contains all virtual interfaces attached to the Direct Connect gateway. If you specify a virtual interface, the response contains all Direct Connect gateways attached to the virtual interface. If you specify both, the response contains the attachment between the Direct Connect gateway and the virtual interface.",
+            "title": "DescribeDirectConnectGatewayAttachments",
             "description": "Lists the attachments between your Direct Connect gateways and virtual interfaces. You must specify a Direct Connect gateway, a virtual interface, or both. If you specify a Direct Connect gateway, the response contains all virtual interfaces attached to the Direct Connect gateway. If you specify a virtual interface, the response contains all Direct Connect gateways attached to the virtual interface. If you specify both, the response contains the attachment between the Direct Connect gateway and the virtual interface.",
             "fields": {
                 "verbose": {
@@ -548,7 +548,7 @@
         },
         "DescribeDirectConnectGateways": {
             "main": "./lib/actions/DescribeDirectConnectGateways.js",
-            "title": "Lists all your Direct Connect gateways or only the specified Direct Connect gateway. Deleted Direct Connect gateways are not returned.",
+            "title": "DescribeDirectConnectGateways",
             "description": "Lists all your Direct Connect gateways or only the specified Direct Connect gateway. Deleted Direct Connect gateways are not returned.",
             "fields": {
                 "verbose": {
@@ -565,8 +565,8 @@
         },
         "DescribeHostedConnections": {
             "main": "./lib/actions/DescribeHostedConnections.js",
-            "title": "<p>Lists the hosted connections that have been provisioned on the specified interconnect or link aggregation group (LAG).</p> <note> <p>Intended for use by AWS Direct Connect partners only.</p> </note>",
-            "description": "<p>Lists the hosted connections that have been provisioned on the specified interconnect or link aggregation group (LAG).</p> <note> <p>Intended for use by AWS Direct Connect partners only.</p> </note>",
+            "title": "DescribeHostedConnections",
+            "description": "Lists the hosted connections that have been provisioned on the specified\ninterconnect or link aggregation group (LAG).\n\nIntended for use by AWS Direct Connect partners only.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -582,8 +582,8 @@
         },
         "DescribeInterconnectLoa": {
             "main": "./lib/actions/DescribeInterconnectLoa.js",
-            "title": "<p>Deprecated. Use <a>DescribeLoa</a> instead.</p> <p>Gets the LOA-CFA for the specified interconnect.</p> <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that is used when establishing your cross connect to AWS at the colocation facility. For more information, see <a href=\"https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html\">Requesting Cross Connects at AWS Direct Connect Locations</a> in the <i>AWS Direct Connect User Guide</i>.</p>",
-            "description": "<p>Deprecated. Use <a>DescribeLoa</a> instead.</p> <p>Gets the LOA-CFA for the specified interconnect.</p> <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that is used when establishing your cross connect to AWS at the colocation facility. For more information, see <a href=\"https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html\">Requesting Cross Connects at AWS Direct Connect Locations</a> in the <i>AWS Direct Connect User Guide</i>.</p>",
+            "title": "DescribeInterconnectLoa",
+            "description": "Deprecated. Use DescribeLoa instead.\n\nGets the LOA-CFA for the specified interconnect.\n\nThe Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a\ndocument that is used when establishing your cross connect to AWS at the\ncolocation facility. For more information, see Requesting Cross Connects at AWS\nDirect Connect Locations\n[https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html] in\nthe AWS Direct Connect User Guide.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -599,7 +599,7 @@
         },
         "DescribeInterconnects": {
             "main": "./lib/actions/DescribeInterconnects.js",
-            "title": "Lists the interconnects owned by the AWS account or only the specified interconnect.",
+            "title": "DescribeInterconnects",
             "description": "Lists the interconnects owned by the AWS account or only the specified interconnect.",
             "fields": {
                 "verbose": {
@@ -616,7 +616,7 @@
         },
         "DescribeLags": {
             "main": "./lib/actions/DescribeLags.js",
-            "title": "Describes all your link aggregation groups (LAG) or the specified LAG.",
+            "title": "DescribeLags",
             "description": "Describes all your link aggregation groups (LAG) or the specified LAG.",
             "fields": {
                 "verbose": {
@@ -633,8 +633,8 @@
         },
         "DescribeLoa": {
             "main": "./lib/actions/DescribeLoa.js",
-            "title": "<p>Gets the LOA-CFA for a connection, interconnect, or link aggregation group (LAG).</p> <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that is used when establishing your cross connect to AWS at the colocation facility. For more information, see <a href=\"https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html\">Requesting Cross Connects at AWS Direct Connect Locations</a> in the <i>AWS Direct Connect User Guide</i>.</p>",
-            "description": "<p>Gets the LOA-CFA for a connection, interconnect, or link aggregation group (LAG).</p> <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that is used when establishing your cross connect to AWS at the colocation facility. For more information, see <a href=\"https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html\">Requesting Cross Connects at AWS Direct Connect Locations</a> in the <i>AWS Direct Connect User Guide</i>.</p>",
+            "title": "DescribeLoa",
+            "description": "Gets the LOA-CFA for a connection, interconnect, or link aggregation group\n(LAG).\n\nThe Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a\ndocument that is used when establishing your cross connect to AWS at the\ncolocation facility. For more information, see Requesting Cross Connects at AWS\nDirect Connect Locations\n[https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html] in\nthe AWS Direct Connect User Guide.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -650,7 +650,7 @@
         },
         "DescribeLocations": {
             "main": "./lib/actions/DescribeLocations.js",
-            "title": "Lists the AWS Direct Connect locations in the current AWS Region. These are the locations that can be selected when calling <a>CreateConnection</a> or <a>CreateInterconnect</a>.",
+            "title": "DescribeLocations",
             "description": "Lists the AWS Direct Connect locations in the current AWS Region. These are the locations that can be selected when calling <a>CreateConnection</a> or <a>CreateInterconnect</a>.",
             "fields": {
                 "verbose": {
@@ -667,7 +667,7 @@
         },
         "DescribeTags": {
             "main": "./lib/actions/DescribeTags.js",
-            "title": "Describes the tags associated with the specified AWS Direct Connect resources.",
+            "title": "DescribeTags",
             "description": "Describes the tags associated with the specified AWS Direct Connect resources.",
             "fields": {
                 "verbose": {
@@ -684,8 +684,8 @@
         },
         "DescribeVirtualGateways": {
             "main": "./lib/actions/DescribeVirtualGateways.js",
-            "title": "<p>Lists the virtual private gateways owned by the AWS account.</p> <p>You can create one or more AWS Direct Connect private virtual interfaces linked to a virtual private gateway.</p>",
-            "description": "<p>Lists the virtual private gateways owned by the AWS account.</p> <p>You can create one or more AWS Direct Connect private virtual interfaces linked to a virtual private gateway.</p>",
+            "title": "DescribeVirtualGateways",
+            "description": "Lists the virtual private gateways owned by the AWS account.\n\nYou can create one or more AWS Direct Connect private virtual interfaces linked\nto a virtual private gateway.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -701,8 +701,8 @@
         },
         "DescribeVirtualInterfaces": {
             "main": "./lib/actions/DescribeVirtualInterfaces.js",
-            "title": "<p>Displays all virtual interfaces for an AWS account. Virtual interfaces deleted fewer than 15 minutes before you make the request are also returned. If you specify a connection ID, only the virtual interfaces associated with the connection are returned. If you specify a virtual interface ID, then only a single virtual interface is returned.</p> <p>A virtual interface (VLAN) transmits the traffic between the AWS Direct Connect location and the customer network.</p>",
-            "description": "<p>Displays all virtual interfaces for an AWS account. Virtual interfaces deleted fewer than 15 minutes before you make the request are also returned. If you specify a connection ID, only the virtual interfaces associated with the connection are returned. If you specify a virtual interface ID, then only a single virtual interface is returned.</p> <p>A virtual interface (VLAN) transmits the traffic between the AWS Direct Connect location and the customer network.</p>",
+            "title": "DescribeVirtualInterfaces",
+            "description": "Displays all virtual interfaces for an AWS account. Virtual interfaces deleted\nfewer than 15 minutes before you make the request are also returned. If you\nspecify a connection ID, only the virtual interfaces associated with the\nconnection are returned. If you specify a virtual interface ID, then only a\nsingle virtual interface is returned.\n\nA virtual interface (VLAN) transmits the traffic between the AWS Direct Connect\nlocation and the customer network.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -718,8 +718,8 @@
         },
         "DisassociateConnectionFromLag": {
             "main": "./lib/actions/DisassociateConnectionFromLag.js",
-            "title": "<p>Disassociates a connection from a link aggregation group (LAG). The connection is interrupted and re-established as a standalone connection (the connection is not deleted; to delete the connection, use the <a>DeleteConnection</a> request). If the LAG has associated virtual interfaces or hosted connections, they remain associated with the LAG. A disassociated connection owned by an AWS Direct Connect partner is automatically converted to an interconnect.</p> <p>If disassociating the connection would cause the LAG to fall below its setting for minimum number of operational connections, the request fails, except when it's the last member of the LAG. If all connections are disassociated, the LAG continues to exist as an empty LAG with no physical connections. </p>",
-            "description": "<p>Disassociates a connection from a link aggregation group (LAG). The connection is interrupted and re-established as a standalone connection (the connection is not deleted; to delete the connection, use the <a>DeleteConnection</a> request). If the LAG has associated virtual interfaces or hosted connections, they remain associated with the LAG. A disassociated connection owned by an AWS Direct Connect partner is automatically converted to an interconnect.</p> <p>If disassociating the connection would cause the LAG to fall below its setting for minimum number of operational connections, the request fails, except when it's the last member of the LAG. If all connections are disassociated, the LAG continues to exist as an empty LAG with no physical connections. </p>",
+            "title": "DisassociateConnectionFromLag",
+            "description": "Disassociates a connection from a link aggregation group (LAG). The connection\nis interrupted and re-established as a standalone connection (the connection is\nnot deleted; to delete the connection, use the DeleteConnection request). If the\nLAG has associated virtual interfaces or hosted connections, they remain\nassociated with the LAG. A disassociated connection owned by an AWS Direct\nConnect partner is automatically converted to an interconnect.\n\nIf disassociating the connection would cause the LAG to fall below its setting\nfor minimum number of operational connections, the request fails, except when\nit's the last member of the LAG. If all connections are disassociated, the LAG\ncontinues to exist as an empty LAG with no physical connections.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -735,8 +735,8 @@
         },
         "TagResource": {
             "main": "./lib/actions/TagResource.js",
-            "title": "<p>Adds the specified tags to the specified AWS Direct Connect resource. Each resource can have a maximum of 50 tags.</p> <p>Each tag consists of a key and an optional value. If a tag with the same key is already associated with the resource, this action updates its value.</p>",
-            "description": "<p>Adds the specified tags to the specified AWS Direct Connect resource. Each resource can have a maximum of 50 tags.</p> <p>Each tag consists of a key and an optional value. If a tag with the same key is already associated with the resource, this action updates its value.</p>",
+            "title": "TagResource",
+            "description": "Adds the specified tags to the specified AWS Direct Connect resource. Each\nresource can have a maximum of 50 tags.\n\nEach tag consists of a key and an optional value. If a tag with the same key is\nalready associated with the resource, this action updates its value.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -752,7 +752,7 @@
         },
         "UntagResource": {
             "main": "./lib/actions/UntagResource.js",
-            "title": "Removes one or more tags from the specified AWS Direct Connect resource.",
+            "title": "UntagResource",
             "description": "Removes one or more tags from the specified AWS Direct Connect resource.",
             "fields": {
                 "verbose": {
@@ -769,8 +769,8 @@
         },
         "UpdateLag": {
             "main": "./lib/actions/UpdateLag.js",
-            "title": "<p>Updates the attributes of the specified link aggregation group (LAG).</p> <p>You can update the following attributes:</p> <ul> <li> <p>The name of the LAG.</p> </li> <li> <p>The value for the minimum number of connections that must be operational for the LAG itself to be operational. </p> </li> </ul> <p>When you create a LAG, the default value for the minimum number of operational connections is zero (0). If you update this value and the number of operational connections falls below the specified value, the LAG automatically goes down to avoid over-utilization of the remaining connections. Adjust this value with care, as it could force the LAG down if it is set higher than the current number of operational connections.</p>",
-            "description": "<p>Updates the attributes of the specified link aggregation group (LAG).</p> <p>You can update the following attributes:</p> <ul> <li> <p>The name of the LAG.</p> </li> <li> <p>The value for the minimum number of connections that must be operational for the LAG itself to be operational. </p> </li> </ul> <p>When you create a LAG, the default value for the minimum number of operational connections is zero (0). If you update this value and the number of operational connections falls below the specified value, the LAG automatically goes down to avoid over-utilization of the remaining connections. Adjust this value with care, as it could force the LAG down if it is set higher than the current number of operational connections.</p>",
+            "title": "UpdateLag",
+            "description": "Updates the attributes of the specified link aggregation group (LAG).\n\nYou can update the following attributes:\n\n *  The name of the LAG.\n   \n   \n *  The value for the minimum number of connections that must be operational for\n   the LAG itself to be operational. \n   \n   \n\nWhen you create a LAG, the default value for the minimum number of operational\nconnections is zero (0). If you update this value and the number of operational\nconnections falls below the specified value, the LAG automatically goes down to\navoid over-utilization of the remaining connections. Adjust this value with\ncare, as it could force the LAG down if it is set higher than the current number\nof operational connections.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -786,8 +786,8 @@
         },
         "UpdateVirtualInterfaceAttributes": {
             "main": "./lib/actions/UpdateVirtualInterfaceAttributes.js",
-            "title": "<p>Updates the specified attributes of the specified virtual private interface.</p> <p>Setting the MTU of a virtual interface to 9001 (jumbo frames) can cause an update to the underlying physical connection if it wasn't updated to support jumbo frames. Updating the connection disrupts network connectivity for all virtual interfaces associated with the connection for up to 30 seconds. To check whether your connection supports jumbo frames, call <a>DescribeConnections</a>. To check whether your virtual interface supports jumbo frames, call <a>DescribeVirtualInterfaces</a>.</p>",
-            "description": "<p>Updates the specified attributes of the specified virtual private interface.</p> <p>Setting the MTU of a virtual interface to 9001 (jumbo frames) can cause an update to the underlying physical connection if it wasn't updated to support jumbo frames. Updating the connection disrupts network connectivity for all virtual interfaces associated with the connection for up to 30 seconds. To check whether your connection supports jumbo frames, call <a>DescribeConnections</a>. To check whether your virtual interface supports jumbo frames, call <a>DescribeVirtualInterfaces</a>.</p>",
+            "title": "UpdateVirtualInterfaceAttributes",
+            "description": "Updates the specified attributes of the specified virtual private interface.\n\nSetting the MTU of a virtual interface to 9001 (jumbo frames) can cause an\nupdate to the underlying physical connection if it wasn't updated to support\njumbo frames. Updating the connection disrupts network connectivity for all\nvirtual interfaces associated with the connection for up to 30 seconds. To check\nwhether your connection supports jumbo frames, call DescribeConnections. To\ncheck whether your virtual interface supports jumbo frames, call \nDescribeVirtualInterfaces.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
